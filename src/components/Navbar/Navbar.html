@@ -1,0 +1,47 @@
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <div class="container-fluid">
+        <router-link class="navbar-brand" to="/home">AnunciosApp</router-link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li v-if="isAuthenticated" class="nav-item">
+              <router-link class="nav-link" to="/home"><i class="bi bi-house-door me-2"></i>Inicio</router-link>
+            </li>
+            <li v-if="!isAuthenticated" class="nav-item">
+              <router-link class="nav-link" to="/login">Iniciar Sesión</router-link>
+            </li>
+            <li v-if="!isAuthenticated" class="nav-item">
+              <router-link class="nav-link" to="/register">Registrarse</router-link>
+            </li>
+            <li v-if="isAuthenticated" class="nav-item">
+              <router-link class="nav-link" to="/profile"><i class="bi bi-person me-2"></i>Mi Perfil</router-link>
+            </li>
+            <li v-if="isAuthenticated" class="nav-item">
+              <router-link class="nav-link" to="/anuncios/mis-anuncios"><i class="bi bi-person me-2"></i>Mis Anuncios</router-link>
+            </li>
+            <li v-if="isSuperAdmin" class="nav-item">
+              <router-link class="nav-link" to="/categorias">Categorias</router-link>
+            </li>
+            <li v-if="isSuperAdmin" class="nav-item">
+              <router-link class="nav-link" to="/admin-users">Dashboard</router-link>
+            </li>
+            <li v-if="isAuthenticated" class="nav-item">
+              <router-link class="nav-link text-primary" to="/anuncios/crear-anuncio"><i class="bi bi-plus-circle me-2"></i> Crear Anuncio</router-link>
+            </li>
+            <li v-if="isAuthenticated" class="nav-item">
+              <button @click="logout" class="nav-link text-danger"><i class="bi bi-door-closed-fill me-2"></i>Cerrar sesión</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
