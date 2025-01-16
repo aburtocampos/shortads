@@ -13,9 +13,9 @@ export const fetchAnunciosByUser = async (usuarioId) => {
 // Obtener todos los anuncios
 export const fetchAnuncios = async () => {
   const snapshot = await getDocs(anunciosCollection);
-  console.log("msi anuncios snapshot",snapshot);
+ // console.log("msi anuncios snapshot",snapshot);
   const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-  console.log("msi anuncios data",data);
+ // console.log("msi anuncios data",data);
   return data;
 };
 

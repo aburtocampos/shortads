@@ -44,9 +44,6 @@ const anunciosStore = useAnunciosStore();
 
 const emit = defineEmits(['cancel']);
 
-
-console.log("route.query.returnTo",route.query.returnTo);
-
 onMounted(async () => {
   // Si el anuncio no se pasa como prop, búscalo en el store por ID
   if (!props.anuncioProp) {
@@ -60,7 +57,7 @@ onMounted(async () => {
   } else {
     anuncio.value = props.anuncioProp;
   }
-  console.log("anuncio",anuncio);
+
 });
 
 function cancel() {

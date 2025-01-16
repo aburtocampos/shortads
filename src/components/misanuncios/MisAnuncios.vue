@@ -14,7 +14,7 @@
         <tr v-for="(anuncio, index) in anunciosRef" :key="anuncio.id">
           <td>{{ index + 1 }}</td>
           <td>{{ anuncio.titulo }}</td>
-          <td>{{ anuncio.descripcion }}</td>
+          <td>{{ truncateText(anuncio.descripcion, 40) }}</td>
           <td>
             <div class="btn-group" role="group" aria-label="Acciones">
               <button
@@ -80,7 +80,6 @@ let dataTableInstance = null; // Instancia de DataTable
 onMounted(async () => {
   if (authStore.user) {
     await anunciosStore.loadAnunciosByUser(authStore.user.uid);
-    console.log("anunciosStore.anunciosByUser",anunciosStore.anunciosByUser);
    // anunciosRef.value = anunciosStore.anunciosByUser;
   }
   watch(
@@ -145,4 +144,9 @@ async function handleDelete(id) {
 function toggleStatus(anuncio) {
  anunciosStore.toggleStatus(anuncio);
 }
+
+function truncateText(text, maxLength) {
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+}
+
 </script>

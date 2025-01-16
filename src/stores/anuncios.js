@@ -16,14 +16,14 @@ export const useAnunciosStore = defineStore('anuncios', {
 
     async loadAnunciosByUser(usuarioId) {
       this.anunciosByUser = await fetchAnunciosByUser(usuarioId);
-      console.log("msi anuncios",this.anuncios);
+      
       this.isLoaded = true;
     },
 
     async addAnuncio(anuncio) {
       try {
         const newAnuncio = await createAnuncio(anuncio);
-        console.log("newAnuncio",newAnuncio);
+       // console.log("newAnuncio",newAnuncio);
         this.anuncios.push(newAnuncio);
       } catch (error) {
         console.log("error",error);
