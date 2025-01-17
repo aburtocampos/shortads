@@ -114,7 +114,10 @@
 
     <div class="mb-2" v-if="form.categoria.toLocaleLowerCase() == 'ventas'">
       <label for="precio" class="form-label">Precio</label>
+      <div class="input-group">
+        <span class="input-group-text">C$</span>
       <input type="number" v-model="form.precio" id="precio" class="form-control" />
+    </div>
     </div>
 
     <div class="form-check mb-3" v-if="form.status">

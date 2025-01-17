@@ -128,13 +128,13 @@ function refreshDataTable() {
 
 // Función para manejar eliminación
 async function handleDelete(id) {
-  const isConfirmed = await confirmAction('¿Estás seguro de que deseas eliminar esta categoría?');
+  const isConfirmed = await confirmAction('¿Estás seguro de que deseas eliminar este anuncio?');
   if (isConfirmed) {
     try {
       await anunciosStore.removeAnuncio(id);
-      showSuccessAlert('La categoría ha sido eliminada exitosamente.');
+      showSuccessAlert('Anuncio eliminado exitosamente.');
     } catch (error) {
-      showErrorAlert('Hubo un error al eliminar la categoría.');
+      showErrorAlert('Hubo un error al eliminar el anuncio.');
       console.error(error);
     }
   }

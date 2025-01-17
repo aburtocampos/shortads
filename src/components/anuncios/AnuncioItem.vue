@@ -3,10 +3,26 @@
     :to="{
       path: `/anuncios/ver-anuncio/${anuncio.id}`,
       query: { returnTo: '/home'},
-        }"
-    >
+        }" >
       <div class="card-body">
         <h6 class="card-title">{{ anuncio.titulo }}</h6>
+        <div class="itemscontainer">
+          <span v-if="anuncio.mostrarTelefono">
+            <i class="bi bi-telephone me-2"></i>
+          </span>
+          <span v-if="anuncio.ithasWhatsapp">
+            <i class="bi bi-whatsapp me-2"></i>
+          </span>
+          <span v-if="anuncio.mostrarTelegram">
+            <i class="bi bi-telegram me-2"></i>
+          </span>
+          <span v-if="anuncio.precio">
+            <i class="bi bi-cash-coin me-2"></i>
+          </span>
+          <span v-if="anuncio.mostrarUbicacion">
+            <i class="bi bi-geo-alt"></i>
+          </span>
+        </div>
       </div>
     </router-link>
     <div v-else class="text-center">

@@ -4,7 +4,7 @@ import { setDoc, doc } from 'firebase/firestore';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
 
 // Iniciar sesión
-export const login = async (email, password) => {
+export const login = async(email, password) => {
   if (!email || !password) {
     throw new Error('Email y contraseña son obligatorios.');
   }
@@ -16,6 +16,7 @@ export const login = async (email, password) => {
     console.error('Error al iniciar sesión:', error.message);
     throw new Error('No se pudo iniciar sesión. Verifica tus credenciales.');
   }
+
 };
 
 // Registrar un nuevo usuario y sincronizar con Firestore

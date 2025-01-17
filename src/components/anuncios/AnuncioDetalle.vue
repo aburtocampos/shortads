@@ -23,7 +23,12 @@
             {{ anuncio.telegramUser }}
           </a>
         </p>
-        <p v-if="anuncio.precio" class="card-text text-muted">Precio: {{ anuncio.precio }}</p>
+        <p v-if="anuncio.precio" class="card-text">Precio: C$ {{ anuncio.precio }}</p>
+        <p v-if="anuncio.mostrarUbicacion" class="card-text">
+          <i class="bi bi-geo-alt"></i>
+          {{ anuncio.municipio }},  {{ anuncio.departamento }}
+
+        </p>
       </div>
     </div>
     <div v-else class="text-center">

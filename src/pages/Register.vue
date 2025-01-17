@@ -17,7 +17,6 @@
         <p>Si ya tiene una cuenta,  <router-link class="btn-link" to="/login"><i class="bi bi-box-arrow-left me-1"></i>Iniciar Sesión</router-link></p>
       </div>
       </form>
-      
     </div>
     </div>
   </section>
@@ -40,7 +39,7 @@
           const authStore = useAuthStore();
           await authStore.registerUser({ email: this.email, password: this.password });
           showSuccessAlert('Registro exitoso. Ahora puedes iniciar sesión.');
-          this.$router.push('/login');
+          this.$router.push('/home');
         } catch (error) {
           showErrorAlert('Error al registrarse: ' + error.message);
         }

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { fetchAnunciosByUser,fetchAnuncios,listenToAnuncios, createAnuncio,updateAnuncio as updateAnuncioAPI  } from '../services/anuncios';
+import { fetchAnunciosByUser,fetchAnuncios,listenToAnuncios, createAnuncio,deleteAnuncio, updateAnuncio as updateAnuncioAPI  } from '../services/anuncios';
 
 export const useAnunciosStore = defineStore('anuncios', {
   state: () => ({
@@ -55,6 +55,19 @@ export const useAnunciosStore = defineStore('anuncios', {
         }
       } catch (error) {
         console.error('Error al cambiar el estado:', error);
+      }
+    },
+
+    async removeAnuncio(id) {
+      try {
+        // Asume que existe un servicio para eliminar el anuncio
+        await deleteAnuncio(id); // Llámalo según tu API o base de datos
+        // Elimina el anuncio del array general
+        this.anuncios = this.anuncios.filter((a) => a.id !== id);
+        // Elimina el anuncio del array específico de anunciosByUser (si aplica)
+        this.anunciosByUser = this.anunciosByUser.filter((a) => a.id !== id);
+      } catch (error) {
+        console.error('Error al eliminar el anuncio:', error);
       }
     },
 
