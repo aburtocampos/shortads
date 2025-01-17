@@ -39,12 +39,6 @@ const routes = [
     component: () => import("../components/anuncios/AnuncioDetalle.vue"),
     meta: { requiresAuth: true },
   },
- /* {
-    path: "/anuncios/ver-anuncio-detalle/:id",
-    name: "AnuncioDetalle",
-    component: () => import("../components/anuncios/AnuncioDetalle.vue"),
-    meta: { requiresAuth: true },
-  },*/
   {
     path: "/anuncios/crear-anuncio",
     name: "CrearAnuncio",
@@ -100,13 +94,25 @@ router.beforeEach((to, from, next) => {
   const isAuthenticated = authStore.isAuthenticated;
   const isSuperAdmin = authStore.isSuperAdmin;
 
+  // Redirige si el usuario ya está autenticado e intenta acceder a /login o /register
+  if (isAuthenticated && (to.path === '/login' || to.path === '/register')) {
+    next('/home'); // Redirige al home si ya está autenticado
+    return;
+  }
+
+  // Redirige si la ruta requiere autenticación y no está autenticado
   if (to.meta.requiresAuth && !isAuthenticated) {
     next('/login'); // Redirige al login si no está autenticado
-  } else if (to.meta.requiresAdmin && !isSuperAdmin) {
-    next('/home'); // Redirige a home si no es superadmin
-  } else {
-    next(); // Permite el acceso
+    return;
   }
+
+  // Redirige si la ruta requiere privilegios de administrador y no es administrador
+  if (to.meta.requiresAdmin && !isSuperAdmin) {
+    next('/home'); // Redirige al home si no es superadmin
+    return;
+  }
+
+  next(); // Permite el acceso si ninguna regla aplica
 });
 
 export default router;
