@@ -10,6 +10,19 @@
       <div class="card-body">
       
         <p class="card-text">{{ anuncio.descripcion }}</p>
+
+        <p class="card-text" v-if="anuncio.telefono">
+          <a :href="anuncio.ithasWhatsapp ? `https://wa.me/${anuncio.telefono}` : `tel:${anuncio.telefono}`">
+            <i class="bi" :class="anuncio.ithasWhatsapp ? 'bi-whatsapp' : 'bi-telephone'"></i>
+            {{ anuncio.telefono }}
+          </a>
+        </p>
+        <p class="card-text" v-if="anuncio.telegramUser">
+          <a :href='`https://t.me/${anuncio.telegramUser}`'>
+          <i class="bi bi-telegram"></i>
+            {{ anuncio.telegramUser }}
+          </a>
+        </p>
         <p v-if="anuncio.precio" class="card-text text-muted">Precio: {{ anuncio.precio }}</p>
       </div>
     </div>

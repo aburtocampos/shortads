@@ -13,7 +13,7 @@
         </button>
         <AnuncioSearchbox v-if="isAuthenticated" class="d-none d-md-block widthsearch" />
         <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-lg-0">
             <AnuncioSearchbox v-if="isAuthenticated" class="d-block d-md-none mt-2" />
             <li v-if="!isAuthenticated" class="nav-item">
               <router-link class="nav-link" to="/login">Iniciar Sesión</router-link>

@@ -6,9 +6,7 @@
         }"
     >
       <div class="card-body">
-        <h5 class="card-title">{{ anuncio.titulo }}</h5>
-        <p class="card-text">{{ anuncio.descripcion }}</p>
-        <p class="card-text text-muted">Precio: {{ anuncio.precio || 'No especificado' }}</p>
+        <h6 class="card-title">{{ anuncio.titulo }}</h6>
       </div>
     </router-link>
     <div v-else class="text-center">
