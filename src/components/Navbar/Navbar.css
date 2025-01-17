@@ -4,3 +4,17 @@
   .navbar{
     border-bottom: 1px solid rgb(140 140 140 / .2);
   }
+  .widthsearch{
+    width: calc(100vw - 34rem);
+  }
+  @media(min-width:992px){
+    .widthsearch{
+      width: calc(100vw - 40rem);
+    }
+  }
+
+  @media(min-width:1300px){
+    .widthsearch{
+      width: calc(100vw - 50rem);
+    }
+  }

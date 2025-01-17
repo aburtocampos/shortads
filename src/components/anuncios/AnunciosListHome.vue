@@ -16,10 +16,14 @@
 import { ref, onMounted, onBeforeUnmount, watch,toRefs,computed  } from 'vue';
 import AnuncioItem from './AnuncioItem.vue';
 import { useAnunciosStore } from '../../stores/anuncios';
-  const anunciosStore = useAnunciosStore();
-  const anuncios = computed(() => anunciosStore.anuncios);
+  //const anunciosStore = useAnunciosStore();
+ // const anuncios = computed(() => anunciosStore.anuncios);
   
 const props = defineProps({
+  anuncios: {
+    type: Array,
+    required: true,
+  },
   emptyMessage: {
     type: String,
     default: 'No hay anuncios disponibles.',

@@ -1,5 +1,5 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+      <div class="container-fluid d-flex justify-content-between">
         <router-link class="navbar-brand" to="/home"><i class="bi bi-house-door me-2"></i>AnunciosApp</router-link>
         <button
           class="navbar-toggler"
@@ -11,9 +11,10 @@
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <AnuncioSearchbox class="d-none d-md-block widthsearch" />
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <AnuncioSearchbox class="d-block d-md-none mt-2" />
             <li v-if="!isAuthenticated" class="nav-item">
               <router-link class="nav-link" to="/login">Iniciar Sesión</router-link>
             </li>

@@ -39,7 +39,7 @@ onMounted(() => {
 
   anuncio.value = props.anuncioProp;
 
-  console.log("anuncio como prop",anuncio);
+ // console.log("anuncio como prop",anuncio);
 });
 
 

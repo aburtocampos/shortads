@@ -4,6 +4,7 @@ import { useAuthStore } from '../../stores/auth';
 import { computed } from 'vue';
 import { showErrorAlert } from '../../utils/alerts';
 import { useRouter } from 'vue-router';
+import AnuncioSearchbox from '../anuncios/AnuncioSearchbox.vue';
 
 // Accede al store
 const authStore = useAuthStore();
@@ -22,6 +23,8 @@ const logout = async () => {
     showErrorAlert('No se pudo cerrar la sesión. Intenta nuevamente.');
   }
 };
+
+
 
 </script>
 

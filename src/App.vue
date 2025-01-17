@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="bg-cream">
     <!-- Mostrar el navbar solo si el usuario está autenticado -->
-    <Navbar  />
+    <Navbar />
 
     <!-- Contenido principal -->
      <div class="container mt-6 pt-2 h-100">
-       <router-view  />
+       <router-view />
      </div>
    
   </div>
@@ -13,7 +13,7 @@
 
 <script setup>
 import { useAuthStore } from './stores/auth';
-import { computed } from 'vue';
+import { computed , ref} from 'vue';
 import Navbar from './components/Navbar/Navbar.vue';
 
 // Accede al store
@@ -21,6 +21,7 @@ const authStore = useAuthStore();
 
 // Computed para verificar si el usuario está autenticado
 const isAuthenticated = computed(() => authStore.isAuthenticated);
+
 
 </script>
 
